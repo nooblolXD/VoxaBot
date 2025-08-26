@@ -18,7 +18,7 @@ class GuessTheNumber(commands.Cog):
 
         self.secret = random.randint(1, 100)
         self.game_active = True
-        self.channel_id = ctx.channel.id  # fixed name
+        self.channel_id = ctx.channel.id  
         print("secret :",self.secret)
 
         await ctx.send(
@@ -29,7 +29,6 @@ class GuessTheNumber(commands.Cog):
 
     @commands.command()
     async def guess(self, ctx, number: int = None):
-        """Make a guess if the event is active."""
         if not self.game_active:
             await ctx.send("There’s no active Guess The Number event right now!")
             return
@@ -55,3 +54,4 @@ class GuessTheNumber(commands.Cog):
 
 async def setup(bot):
     await bot.add_cog(GuessTheNumber(bot))
+
