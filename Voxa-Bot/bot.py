@@ -2,9 +2,7 @@ import discord
 from discord.ext import commands
 import os
 import asyncio
-from dotenv import load_dotenv
 
-load_dotenv()
 
 
 intents = discord.Intents.default()
@@ -24,6 +22,7 @@ async def load_cogs():
 async def main():
     async with bot:
         await load_cogs()
-        await bot.start(os.getenv("token"))
+        await bot.start()
 
 asyncio.run(main())
+
